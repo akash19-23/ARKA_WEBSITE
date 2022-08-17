@@ -1,0 +1,60 @@
+<%- include('../partials/header') -%>
+<div class="container" >
+    <h1 style="justify-content: center;"><%= blog.title %> </h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="showBlog" style="margin: 25px auto;">
+              <img src="<%= blog.image %> " class="img-responsive">
+                <div class="caption-full">
+                    <span class="pull-right text-muted text-sm"><%= blog.created.toDateString() %> </span>
+                    <h2><%= blog.title %></h2>
+                    <p><%- blog.body %> </p><br>
+                    <p>
+                        <em>Submitted By <%= blog.author.username %> </em>
+                    </p>
+                    <% if(currentUser && blog.author.id.equals(currentUser._id)){ %>
+                      <a class="btn btn-warning" href="/blogs/<%= blog._id %>/edit">Edit</a>
+                    <form id="delete-form" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger">Delete</button>
+                    </form>
+                   <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+  <div class="well" style="padding: 20px;">
+        <div class="row">
+            <div class="col-md-4">
+              Add Comment
+            </div>
+           <form action="/blogs/<%= blog._id %>/comments" method="POST">
+               <div class="form-group col-md-6">
+                 <input type="text" name="comment[text]" required class="form-control" placeholder="Add a new comment">
+               </div>
+               <div class="form-group col-md-2">
+                 <input type="submit" class="btn btn-outline-success">
+             </div>
+           </form>
+           </div>
+        <hr>
+        <% blog.comments.forEach(function(comment){ %>
+         <div class="row">
+             <div class="col-md-10">
+            <strong><i class="fa fa-user-circle" aria-hidden="true"></i> <%= comment.author.username %></strong> - <em><%= comment.text %> </em> 
+             </div>
+             <div class="col-md-2">
+              <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>  
+              <form id="delete-form" action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </form>
+              <% } %>
+             </div>
+         </div>
+         <br>
+         <hr>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('../partials/footer') -%>

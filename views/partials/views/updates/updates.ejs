@@ -1,0 +1,77 @@
+
+<%- include('../partials/header') -%>
+
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-3" style="color: #3694ff;">Updates</h1>
+    <p class="lead">Get the latest updates about the upcoming events and meetings of the club.</p>
+    <hr class="my-2">
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/updates/new" role="button" >Add New Update</a>
+    </p>
+  </div>
+    <h2>Upcoming Events</h2>
+    <% var filteredUpdates  = updates.filter(update => update.datetime>=Date.now()) %> 
+    <% filteredUpdates.reverse().forEach(update => { %>
+      <div class="well mx-auto">
+      <div class="row">
+        <div class="col-md-8">
+          <h3><%= update.title %> </h3>
+          <p><%- update.description %> </p>
+          <% if(currentUser && update.author.id.equals(currentUser._id)){ %>  
+            <form id="delete-form" action="/updates/<%= update._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger">Delete</button>
+            </form>
+          <% } %>
+        </div>
+        <div class="col-md-4 col-12" id="blogList">
+          <div class="text-muted text-sm" style="margin-top: 10px; margin-bottom: 20px;"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= update.author.username %> </div>
+          <h4 class="text-muted">DATE</h4>
+          <h4><%= update.datetime.toLocaleDateString() %> </h4>
+          <h4 class="text-muted">DATE</h4>
+          <h4><%= update.datetime.toLocaleTimeString() %> </h4>
+          <% if(update.facebook){ %>
+            <a href="<%= update.facebook %> "><i class="fa fa-facebook" aria-hidden="true"></i> </a>
+          <% }  %> 
+          <% if(update.instagram){ %>
+            <a href="<%= update.instagram %> "><i class="fa fa-instagram" aria-hidden="true"></i> </a>
+          <% }  %>
+        </div>
+      </div>
+    </div>
+    <% }); %> 
+    <h2>Past Events</h2>
+    <% filteredUpdates  = updates.filter(update => update.datetime<Date.now()) %> 
+    <% filteredUpdates.reverse().forEach(update => { %>
+      <div class="well mx-auto">
+      <div class="row">
+        <div class="col-md-8">
+          <h3><%= update.title %> </h3>
+          <p><%- update.description %> </p>
+          <% if(currentUser && update.author.id.equals(currentUser._id)){ %>  
+            <form id="delete-form" action="/updates/<%= update._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger">Delete</button>
+            </form>
+          <% } %>
+        </div>
+        <div class="col-md-4 col-12" id="blogList">
+          <div class="text-muted text-sm" style="margin-top: 10px; margin-bottom: 20px;"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= update.author.username %> </div>
+          <h4 class="text-muted">DATE</h4>
+          <h4><%= update.datetime.toLocaleDateString() %> </h4>
+          <h4 class="text-muted">DATE</h4>
+          <h4><%= update.datetime.toLocaleTimeString() %> </h4>
+          <% if(update.facebook){ %>
+            <a href="<%= update.facebook %> "><i class="fa fa-facebook" aria-hidden="true"></i> </a>
+          <% }  %> 
+          <% if(update.instagram){ %>
+            <a href="<%= update.instagram %> "><i class="fa fa-instagram" aria-hidden="true"></i> </a>
+          <% }  %>
+        </div>
+      </div>
+    </div>
+    <% }); %> 
+
+</div>
+<%- include('../partials/footer') -%>

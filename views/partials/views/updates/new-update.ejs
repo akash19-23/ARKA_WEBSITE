@@ -1,0 +1,39 @@
+<%- include('../partials/header') -%>
+    <div class="container" >
+        <div class="form-group" style="min-width:350px; width: 60%;margin:25px auto;">
+          <form action="/updates" method="POST">
+            <h1 style="text-align:center; ">New Update</h1>
+            <div class="form-group">
+              <label for="update[title]">Title</label>
+              <input type="text" name="title" required class="form-control" placeholder="Title of the Event" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+              <label for="update[datetime]">Title</label>
+              <input type="datetime-local" name="datetime" required class="form-control" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+              <label for="update[description]">Short Description</label>
+              <textarea name="description" class="form-control" required style="height: 10em;"></textarea>
+            </div>
+            <br>
+            <h3>Social Posts Link (if any):</h3>
+            <div class="form-group">
+              <label for="update[facebook]">Facebook</label>
+              <input type="text" name="facebook" class="form-control" placeholder="Paste URL of Facebook post" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+              <label for="update[instagram]">Instagram</label>
+              <input type="text" name="instagram" class="form-control" placeholder="Paste URL of Instagram post" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-lg btn-success">
+            </div>
+          </form>
+          
+        </div>
+    </div>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace('description');
+    </script>
+    <%- include('../partials/footer') -%>

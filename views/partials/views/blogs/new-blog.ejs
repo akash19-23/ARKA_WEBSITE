@@ -1,0 +1,29 @@
+<%- include('../partials/header') -%>
+    <div class="container">
+        <div class="form-group" style="min-width:350px; width: 60%;margin:25px auto;">
+          <form action="/blogs" method="POST">
+            <h1 style="text-align:center; ">New Blog</h1>
+            <div class="form-group">
+              <label for="blog[title]">Title</label>
+              <input type="text" name="title" required class="form-control" placeholder="Title for the Blog" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+              <label for="blog[image]">Image</label>
+              <input type="text" name="image" required class="form-control" placeholder="Image URL" aria-describedby="helpId">
+            </div>
+            <div class="form-group">
+              <label for="blog[body]">Content</label>
+              <textarea name="body" class="form-control" required style="height: 10em;"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-lg btn-success">
+            </div>
+          </form>
+          
+        </div>
+    </div>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace('body');
+    </script>
+    <%- include('../partials/footer') -%>

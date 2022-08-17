@@ -1,0 +1,31 @@
+
+<%- include('../partials/header') -%>
+
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-3" style="color: #3694ff;">Blogs</h1>
+    <p class="lead">Read Blogs contributed by our club members..</p>
+    <hr class="my-2">
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/blogs/new" role="button">Add your Own Blog</a>
+    </p>
+  </div>"
+    <% blogs.reverse().forEach(blog => { %>
+      <div class="well" style="padding: 0;">
+      <div class="row">
+        <div class="col-md-6"><img src="<%= blog.image %>" id="blogListImage" class="img-responsive"></div>
+        <div class="col-md-6" id="blogList">
+          <div class="text-muted text-sm" style="margin-top: 10px; margin-bottom: 20px;"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= blog.author.username %> </div>
+          <h2><%= blog.title %></h2>
+          <div class="text-muted text-sm" style="margin-top: -8px; margin-bottom: 20px;"><%= blog.created.toDateString() %> </div>
+          <p><%- blog.body.substring(0,100) %>.... </p>
+          <a href="/blogs/<%= blog._id %>" class="btn btn-lg btn-warning" style="margin-top: 40px;">Read More</a>
+        </div>
+      </div>
+    </div>
+    <% }); %> 
+</div>
+
+<%- include('../partials/footer') -%>

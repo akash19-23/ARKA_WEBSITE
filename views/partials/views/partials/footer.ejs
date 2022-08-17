@@ -1,0 +1,101 @@
+<footer style=" box-sizing: content-box; padding-top: 0; margin-top: 150px;">
+    <div class="row">
+        <div class="col-lg-12">
+  <div class="col-lg-3 col-md-6">
+        <div class="container">
+  
+  
+  <div class="col-lg-6">
+    <div class="cuadro_intro_hover ">
+  
+     <!--image can be added here for about us-->
+  
+    <div class="caption">
+      <div class="blur"></div>
+      <div class="caption-text">
+        <h3 style="border-top:2px solid ; border-bottom:2px solid; padding:10px;">About</h3>
+        <p style="padding-left: 6px;">The Astronomy club-ARKA provides an platform for all those who have ever looked into the night sky,awe at its magnificence and stuck with its mysteries.<br>
+            This website is an interactive platform for all those minds which have ever rose the question how, when, where and why on looking into vastness and grandeur of the cosmos with a vision of solving the mysteries lurking in it and increasing public awareness and understanding of science and astronomy. 
+          </p>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+ 
+    
+  
+    <div class="col-lg-2 col-md-6">
+  <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+  <li><a href="/explore">Explore</a></li>
+  <li><a href="/blogs">Blogs</a></li>
+  <!-- <li><a href="/updates">Updates</a></li> -->
+  <li><a href="/members">Members</a></li>
+  <li><a href="/Updates">Updates</a></li>
+
+  
+  </ul>
+    </div>
+  
+    <div class="col-lg-4 col-md-6">
+        <h3>Contact us :</h3>
+        <a href="mailto:arkaiitism@gmail.com"  target="_blank" title="Mail"><span class="fa-stack fa-lg">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-envelope fa-stack-1x"></i>
+            </span>
+            arkaiitism@gmail.com</a>
+    <h3>Follow us on:</h3>
+
+  <a href="https://www.facebook.com/ARKAiitism"  target="_blank" title="Facebook"><span class="fa-stack fa-lg">
+    <i class="fa fa-square-o fa-stack-2x"></i>
+    <i class="fa fa-facebook fa-stack-1x"></i>
+    </span>
+    Facebook</a>
+  
+    <a href="https://www.instagram.com/arka_iit_ism"  target="_blank" title="Facebook"><span class="fa-stack fa-lg">
+        <i class="fa fa-square-o fa-stack-2x"></i>
+        <i class="fa fa-instagram fa-stack-1x"></i>
+        </span>
+        Instagram</a>
+    
+  
+  
+  
+  
+  
+  </div>
+  <br>
+  </div>
+  </div>
+  </div>
+  </div>
+  </footer>
+  <script>
+    var checkbox = document.querySelector('input[name=theme]');
+
+checkbox.addEventListener('change', function() {
+    if(this.checked) {
+        trans()
+        document.documentElement.setAttribute('data-theme', 'dark')
+    } else {
+        trans()
+        document.documentElement.setAttribute('data-theme', 'light')
+    }
+})
+
+let trans = () => {
+    document.documentElement.classList.add('transition');
+    window.setTimeout(() => {
+        document.documentElement.classList.remove('transition')
+    }, 1000)
+}
+  </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
